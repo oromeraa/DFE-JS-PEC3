@@ -1,0 +1,17 @@
+<div class="article-card" [class.on-sale]="article.isOnSale">
+  
+  <img [src]="article.imageUrl" [alt]="article.name" class="product-img">
+  
+  <h3>{{ article.name }}</h3>
+  
+  <p class="price">{{ article.price }} €</p>
+  
+  <div class="quantity-controls">
+    <!-- Desactivar botón cuando la cantidad es 0 -->
+    <button (click)="decreaseQuantity()" [disabled]="article.quantityInCart === 0">-</button>
+    
+    <span class="quantity">{{ article.quantityInCart }}</span>
+    
+    <button (click)="increaseQuantity()">+</button>
+  </div>
+</div>
