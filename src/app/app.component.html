@@ -179,11 +179,10 @@
 
 <main class="main">
     <div class="header">
-        <app-navbar (toSection)="goToSection($event)"></app-navbar>
+        <app-navbar (toSection)="goToSection($event)"></app-navbar>        
     </div>
 
     <div class="content">
-
         <div *ngIf="currentSection === 'home' || currentSection === 'articles'">
             <app-article-list></app-article-list>
         </div>
@@ -194,16 +193,12 @@
         <div *ngIf="currentSection === 'new-reactive'">
           <h2>Formulario Reactivo (Próximamente Ejercicio 7)</h2>
         </div>
-
-        <!-- <app-article-item #myArticle></app-article-item> 
-        <app-debug-panel 
-        (toggleSale)="myArticle.toggleOnSale()">
-        </app-debug-panel>  -->
     </div>
 
     <div class="footer">
-      <p>Omar Romera Aller 2025</p>
+      <p>2025 Romera Aller, Omar</p>
     </div>
+    
 </main>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
