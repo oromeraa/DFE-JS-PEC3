@@ -178,8 +178,11 @@
 </style>
 
 <main class="main">
-  <div class="content">
-      <app-article-item></app-article-item>
+  <div class="content">  
+      <app-article-item #myArticle></app-article-item> 
+      <app-debug-panel 
+        (toggleSale)="myArticle.toggleOnSale()">
+      </app-debug-panel> 
   </div>
 </main>
 

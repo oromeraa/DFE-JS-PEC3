@@ -25,4 +25,9 @@ export class ArticleItemComponent {
             this.article.quantityInCart--;
         }
     }
+    
+    // Boton para alternar el estado de oferta (DEBUG)
+    toggleOnSale(): void {
+        this.article.isOnSale = !this.article.isOnSale;
+    }
 }
