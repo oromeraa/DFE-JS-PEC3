@@ -1,33 +1,27 @@
-import { Component } from '@angular/core';
-import { Article } from '../model/article';
+import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
+import { Article, ArticleQuantityChange } from '../model/article';
 
 @Component({
     selector: 'app-article-item',
     templateUrl: './article-item.component.html',
-    styleUrl: './article-item.component.css'
+    styleUrls: ['./article-item.component.css'],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ArticleItemComponent {
-    article: Article = {
-        name: 'Mattel Games - Uno No Mercy',
-        imageUrl: 'https://images.mattel.net/image/upload/w_180,h_180,f_auto,c_pad/shop-emea-prod/products/jhypq16aafd0yqm1coyv_82ba9a3f-3be0-4b24-bd58-339571dab4b2.png',
-        price: 10.00,
-        isOnSale: true,
-        quantityInCart: 0
-    };
+    @Input() article!: Article;
+    @Output() quantityChange = new EventEmitter<ArticleQuantityChange>();
 
+    // Ahora los datos se modifican a través de eventos de manera externa
     increaseQuantity(): void {
-        this.article.quantityInCart++;
+        this.quantityChange.emit({ article: this.article, changeInQuantity: 1 });
     }
-
     decreaseQuantity(): void {
-        // Controlamos que no baje de 0
-        if (this.article.quantityInCart > 0) {
-            this.article.quantityInCart--;
-        }
+        this.quantityChange.emit({ article: this.article, changeInQuantity: -1 });
     }
     
     // Boton para alternar el estado de oferta (DEBUG)
-    toggleOnSale(): void {
-        this.article.isOnSale = !this.article.isOnSale;
-    }
+    // toggleOnSale(): void {
+    //     this.article.isOnSale = !this.article.isOnSale;
+    // }
+    // Ahora los datos se modifican a través de eventos de manera externa
 }
