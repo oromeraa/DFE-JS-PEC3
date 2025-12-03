@@ -178,14 +178,31 @@
 </style>
 
 <main class="main">
+    <div class="header">
+        <app-navbar (toSection)="goToSection($event)"></app-navbar>
+    </div>
+
     <div class="content">
-        <h1>Juegos de mesa</h1>
-        <app-article-list></app-article-list>
+
+        <div *ngIf="currentSection === 'home' || currentSection === 'articles'">
+            <app-article-list></app-article-list>
+        </div>
+        <div *ngIf="currentSection === 'new-template'">
+          <h2>Formulario Template (Próximamente Ejercicio 6)</h2>
+        </div>
+
+        <div *ngIf="currentSection === 'new-reactive'">
+          <h2>Formulario Reactivo (Próximamente Ejercicio 7)</h2>
+        </div>
 
         <!-- <app-article-item #myArticle></app-article-item> 
         <app-debug-panel 
         (toggleSale)="myArticle.toggleOnSale()">
         </app-debug-panel>  -->
+    </div>
+
+    <div class="footer">
+      <p>Omar Romera Aller 2025</p>
     </div>
 </main>
 
