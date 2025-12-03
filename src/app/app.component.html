@@ -186,13 +186,16 @@
         <div *ngIf="currentSection === 'home' || currentSection === 'articles'">
             <app-article-list></app-article-list>
         </div>
+
         <div *ngIf="currentSection === 'new-template'">
-          <h2>Formulario Template (Próximamente Ejercicio 6)</h2>
+          <app-article-new-template></app-article-new-template>
         </div>
 
         <div *ngIf="currentSection === 'new-reactive'">
           <h2>Formulario Reactivo (Próximamente Ejercicio 7)</h2>
         </div>
+
+
     </div>
 
     <div class="footer">

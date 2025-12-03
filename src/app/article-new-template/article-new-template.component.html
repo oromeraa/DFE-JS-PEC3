@@ -1,0 +1,59 @@
+<div class="form-container">
+  <h1 class="h3 mb-3 fw-normal">Nuevo artículo (Template)</h1>
+
+  <div class="form-group">
+    <form (ngSubmit)="createArticle(articleForm)" #articleForm="ngForm">
+        <div ngModelGroup="article">
+
+            <div class="form-floating">
+                <input class="form-control"
+                    type="text"
+                    placeholder="Nombre del artículo"
+                    required="true"
+                    name="name"
+                    ngModel
+                    #name="ngModel">
+                <label for="name">Nombre del artículo</label>
+                <div *ngIf="name.errors?.['required'] && name.touched" class="error-msg">
+                  Nombre obligatorio
+                </div>
+            </div>
+
+            <div class="form-floating">
+                <input class="form-control"
+                    type="number"
+                    placeholder="Precio"
+                    required="true"
+                    min="0"
+                    step="0.01"
+                    name="price"
+                    ngModel>
+                <label for="price">Precio</label>    
+                <div *ngIf="price.errors?.['required'] && price.touched" class="error-msg">
+                  Precio obligatorio
+                </div>            
+            </div>
+
+            <div class="form-floating">
+                <input class="form-control"
+                    type="text"
+                    placeholder="URL de la Imagen"
+                    required="true"
+                    name="imageUrl"
+                    ngModel>
+                <label for="imageUrl">URL de la Imagen</label>
+            </div>
+
+            <div class="form-check text-start my-3">
+                <label for="onSale">
+                    <input type="checkbox"
+                        name="onSale"
+                        ngModel>
+                    En stock
+                </label>
+            </div>
+
+        </div>
+        <button class="btn btn-primary" type="submit">Crear Artículo</button>
+    </form>
+</div>

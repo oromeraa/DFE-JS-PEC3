@@ -8,15 +8,10 @@
     
     <div *ngIf="article.isOnSale" class="quantity-controls">
         <!-- Desactivar botón cuando la cantidad es 0 -->
-        <button (click)="decreaseQuantity()" [disabled]="article.quantityInCart === 0">-</button>
+        <button class="btn btn-secondary rounded-circle justify-content-center lh-1" (click)="decreaseQuantity()" [disabled]="article.quantityInCart === 0">-</button>
         
         <span class="quantity">{{ article.quantityInCart }}</span>
         
-        <button (click)="increaseQuantity()">+</button>
+        <button class="btn btn-secondary rounded-circle justify-content-center lh-1"  (click)="increaseQuantity()">+</button>
     </div>
-
-    <!-- Boton para alternar el estado de disponibilidad (DEBUG) -->
-    <!-- <div class="debug">
-        <button (click)="toggleOnSale()">Toggle isOnSale</button>
-    </div> -->
 </div>
