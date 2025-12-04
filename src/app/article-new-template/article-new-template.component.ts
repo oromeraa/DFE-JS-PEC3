@@ -11,10 +11,10 @@ export class ArticleNewTemplateComponent {
 
   constructor() {
     // no debemos crear Article, solo manejar el formulario
-   }
+  }
+  
   createArticle(articleForm: any) {
     if (articleForm.valid) {
-      // Se imprime por consola el objeto article recogido del formulario [cite: 229]
       console.log('Artículo nuevo:', articleForm.value.article);
     } else {
       console.error('El formulario contiene errores');
