@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { Article } from '../model/article';
 
 @Component({
   selector: 'app-article-new-template',
